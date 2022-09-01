@@ -1,10 +1,4 @@
 <%= link_to "New Post", new_post_path %>
-<% @posts.each do |post| %>
-  <h2><%= link_to post.title, post %> </h2>
-  <div><%= truncate(post.body, :length => 35) %></div>
-  <br>
-  <%= link_to "Read Post", post %>
-<% end %>
 <br>
 <% if user_signed_in? %>
   <%= link_to "Sign_Out", destroy_user_session_path, method: :delete %>
@@ -12,3 +6,9 @@
   <%= link_to "Sign_In", new_user_session_path %>
 <% end %>
 
+<% @posts.each do |post| %>
+  <h2><%= link_to post.title, post %> </h2>
+  <div><%= truncate(post.body, :length => 35) %></div>
+  <br>
+  <%= link_to "Read Post", post %>
+<% end %>
