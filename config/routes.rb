@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'post/title:string'
-  get 'post/description:string'
   get 'welcome/index'
   devise_for :users
   root 'welcome#index'
