@@ -5,4 +5,7 @@ class PostPolicy < ApplicationPolicy
   def destroy
    user.present?
   end
+  def create?
+    user.present?
+  end
 end
