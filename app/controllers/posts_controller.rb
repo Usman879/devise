@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts=Post.order("created_at DESC")
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    
+    authorize @post
     if @post.update(post_params)
       redirect_to @post
     else
@@ -49,5 +49,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
-end
 end
